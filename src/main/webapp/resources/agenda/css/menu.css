@@ -1,0 +1,76 @@
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    margin-top: 10px
+}
+.menu>li{
+    border-top: 1px solid var(--acent-color);
+}
+.menu>li:nth-child(1) {
+    border: none;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+}
+.menu a {
+    display: block;
+    text-decoration: none;
+    padding-left: 15px;
+    color: var(--menu-text-color);
+    line-height: 3em;
+    /* border-radius: 15px; */
+    transition: color 0.3s, background 0.3s;
+}
+.menu a:hover {
+    background-color: var(--acent-color);
+    color: var(--acent-text-color);
+}
+.menu li a{
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    align-items: center;
+}
+.menu li.active > a { 
+    border-left: 5px solid var(--header-bg-color);
+}
+
+
+.menu li.submenu > a::after {
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display,inline-block);
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 1;
+    text-rendering: auto;
+    justify-self: flex-end;
+    padding-right: 10px;
+    transition: transform 0.3s;
+}
+.menu li.submenu.open > a::after {
+    transform: rotateX(180deg);
+}
+.menu li.open>a {
+    background-color: var(--acent-color);
+    color: var(--acent-text-color);
+}
+.menu li.open>ul {
+    display: block;
+}
+.menu i {
+    margin-right: 5px;
+}
+.menu li ul {
+    display: none;
+}
+.menu li ul a{
+    padding-left: 20px;
+}
+.no-scroll {
+    overflow-y: hidden;
+}

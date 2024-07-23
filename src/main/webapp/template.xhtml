@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>IFTM - Agenda</title>
+        <h:outputStylesheet library="agenda" name="css/all.css"></h:outputStylesheet>
+        <h:outputStylesheet library="agenda" name="css/admin.css"></h:outputStylesheet>
+        <h:outputStylesheet library="agenda" name="css/menu.css"></h:outputStylesheet>
+        <h:outputStylesheet library="agenda" name="css/options.css"></h:outputStylesheet>
+        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <a href="#{request.contextPath}/index.xhtml" class="logo"><h:graphicImage library="agenda" name="images/logo.png"></h:graphicImage></a>
+            <div class="title">
+                <h1><i class="fa-solid #{not empty icone ? icone:'fa-desktop'}"></i> #{not empty titulo ? titulo:'IFTM Agenda'}</h1>
+            </div>
+            <ul class="options">
+                <li class="notify"><a href="#"><i class="fa-solid fa-bell"></i></a>
+                    <ul class="notifications">
+                        <li>
+                            <a href="#">
+                                <div class="notifica">
+                                    <i class="fa-solid fa-computer"></i>
+                                    <div class="notifica-header">
+                                        <h3>Notificação 1</h3>
+                                        <div class="notifica-date">17/07/2024</div>
+                                    </div>
+                                    <div class="notifica-body">
+                                        <p>Descrição da notificação 1</p>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-computer"></i> Notificação 2</a></li>
+                        <li><a href="#"><i class="fa-solid fa-computer"></i> Notificação 3</a></li>
+                        <li><a href="#"><i class="fa-solid fa-computer"></i> Notificação 4</a></li>
+                    </ul>  
+                </li>
+                <li class="user"><a href="#" ><i class="fa-solid fa-user"></i></a>
+                    <div class="user-details">
+                        <img src="https://i.pravatar.cc/150" alt=""/>
+                        <div class="name">Usuário</div>
+                        <div class="email">usuario@iftm.edu.br</div>
+                        <div class="user-options">
+                            <button>Perfil</button>
+                            <button>Sair</button>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" class="toggle-menu"><i class="fa-solid fa-bars"></i></a></li>
+            </ul>
+        </header>
+        <aside>
+            <a href="#{request.contextPath}/index.xhtml"  class="logo-mobile" ><h:graphicImage library="agenda" name="images/logo.png"></h:graphicImage></a>
+            <ul class="menu">
+                <li><a href="#{request.contextPath}/index.xhtml" ><i class="fa-solid fa-gauge"></i> Dashborad</a></li>
+                <li class="submenu #{request.servletPath.contains('/cadastros')?'active':''}"><a href="#"><i class="fa-solid fa-file-pen"></i> Cadastros</a>
+                    <ul>
+                        <li class="#{request.servletPath.contains('/cadastro/usuarios.xhtml')?'active':''}"><a href="#{request.contextPath}/cadastro/usuarios.xhtml"><i class="fa-solid fa-user"></i> Usuários</a></li>
+                        <li class="#{request.servletPath.contains('/cadastro/categorias.xhtml')?'active':''}"><a href="#{request.contextPath}/cadastro/categorias.xhtml"><i class="fa-solid fa-sitemap"></i> Categorias</a></li>
+                        <li class="#{request.servletPath.contains('/cadastro/servicos.xhtml')?'active':''}"><a href="#{request.contextPath}/cadastro/servicos.xhtml"><i class="fa-solid fa-address-card"></i> Serviços</a></li>
+                    </ul>
+                </li>
+                <li class="#{request.servletPath.contains('/agenda.xhtml')?'active':''}"><a href="#{request.contextPath}/agenda.xhtml"><i class="fa-solid fa-calendar"></i> Agenda</a></li>
+                <li class="submenu #{request.servletPath.contains('/configuracoes.xhtml')?'active':''}"><a href="#"><i class="fa-solid fa-server"></i> Sistema</a>
+                    <ul>
+                        <li class="#{request.servletPath.contains('/configuracoes.xhtml')?'active':''}"><a href="#{request.contextPath}/configuracoes.xhtml"><i class="fa-solid fa-gears"></i> Configurações</a></li>
+                    </ul>
+                </li>
+                <li class="submenu"><a href="#"><i class="fa-solid fa-chart-column"></i> Relatorios</a>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-stopwatch"></i> Tempo Gasto</a></li>
+                        <li><a href="#"><i class="fa-solid fa-laptop-file"></i> Equipamentos</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user-tie"></i> Usuários</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <div class="overlay"></div>
+        <main>
+            <p:growl showDetail="true" globalOnly="true">
+                <p:autoUpdate></p:autoUpdate>
+            </p:growl>
+            <p:confirmPopup global="true">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirm-popup-yes" />
+            </p:confirmPopup>
+            <ui:insert></ui:insert>
+        </main>
+        <footer>Todos os direitos reservados</footer>
+        <h:outputScript library="agenda" name="js/menu.js"></h:outputScript>
+    </h:body>
+</html>

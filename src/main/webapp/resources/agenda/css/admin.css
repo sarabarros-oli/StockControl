@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --acent-color: rgba(0,0,0,0.2);
+    --acent-text-color: #334;
+    --header-bg-color: #2196f3; /* #003D66; */
+    --aside-bg-color: #f8f9fa;
+    --card-color: #729477;
+    --task-header-bg: #3f63b1;
+    --task-header-color: #000;
+    --header-text-color: #fff;
+    --menu-text-color: #334;
+}
+* {
+    box-sizing: border-box;
+}
+h1, h2, h3, p {
+    margin: 0;
+    font-weight: normal;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+            "header header"
+            "main main"
+            "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: max-content auto max-content;
+}
+.logo {
+    justify-self: center;
+    display: none;
+}
+.logo img {
+    height: 60px;
+    padding: 10px;
+}
+.logo-mobile {
+    background-color: var(--header-bg-color);
+}
+.logo-mobile img {
+    height: 60px;
+    padding: 10px;
+    width: 100%;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--header-bg-color);
+    display: grid;
+    grid-template-columns: auto max-content;
+    align-items: center;
+    z-index: 400;
+    box-shadow: 0px 4px 5px -3px rgba(0,0,0,0.4)
+}
+header h1 {
+    font-size: 1.5em;
+    color: var(--header-text-color);
+    padding: 0 10px;
+    display: block;
+}
+header .title h1 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    padding-left: 15px;
+}
+
+aside {
+    grid-area: aside;
+    background-color: var(--aside-bg-color);
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    left: -250px;
+    transition: left 0.3s;
+    z-index: 200;
+    overflow-y: auto;
+    box-shadow: 3px 0px 5px -5px rgba(0,0,0,0.4)
+}
+aside.open {
+    left: 0;
+    z-index: 500;
+}
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: background 0.3s;
+}
+aside.open ~ .overlay {
+    display: block;
+}
+main {
+    grid-area: main;
+    padding: 20px;
+}
+footer {
+    grid-area: footer;
+    background-color: var(--aside-bg-color);
+    padding: 10px;
+}
+
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+@media screen and (min-width: 800px) {
+    body {
+        grid-template-areas: 
+            "header header"
+            "aside main"
+            "footer footer";
+    }
+    aside {
+        position: static;
+        height: auto;
+    }
+    .toggle-menu {
+        display: none!important;
+    }
+    .overlay {
+        display: none!important;
+    }
+    .logo-mobile {
+        display: none;
+    }
+    .logo {
+        display: block;
+    }
+    header {
+        grid-template-columns: 250px auto max-content;
+    }
+}
+
+.tasks>div {
+    border: 1px solid var(--task-header-bg);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px -4px #ccc;
+    overflow: hidden;
+}
+.tasks h2 {
+    text-align: center;
+    font-size: 1em;
+    font-weight: normal;
+    background-color: var(--task-header-bg);
+    color: var(--task-header-color);
+    padding: 10px;
+    margin: 0;
+}
+
+.tasks .cards {
+    padding: 10px;
+}
+
+.tasks .cards .card {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 10px -4px #ccc;
+}
+.tasks .cards .card .card-header {
+    background-color: #ffffff66;
+    width: 100%;
+    padding: 10px 15px;
+}
+.tasks .cards .card .card-header h3 {
+    font-size: 1em;
+}
+.tasks .cards .card .card-body {
+    padding: 10px;
+}
+
+.tasks .cards .card .card-footer {
+    border-top: 1px solid #ffffff66;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tasks .cards .card .card-footer p {
+    padding: 10px;
+}

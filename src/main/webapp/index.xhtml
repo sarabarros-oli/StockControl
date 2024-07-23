@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="template.xhtml"
+                xmlns:p="primefaces">
+
+    <style>
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        /*Cards Dashboard*/
+        .card {
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 1px 1px 2px black;
+            border-bottom: 10px solid rgba(0,0,0,0.2);
+        }
+        .card-title {
+            font-size: 1.5em;
+            padding-left: 10px;
+        }
+        .card-content {
+            /*line-height: 2em;*/
+            font-size: 2em;
+            padding: 10px 0 0 10px;
+        }
+        i.card-icon {
+            float: right;
+            font-size: 3em;
+        }
+        .c1 {
+            background: #39B366;
+            color: white;
+        }
+        .c2 {
+            background: #673E9B;
+            color: white;
+        }
+        .c3 {
+            background: #F78F4E;
+            color: white;
+        }
+        .receita {
+            color: #46C83F;
+        }
+        .despesa {
+            color: #EB4A60;
+        }
+    </style>
+
+    <p:fieldset legend="Dasboard">       
+        <div class="cards">
+            <div class="card c1">
+                <i class="card-icon fa fa-calendar-check"></i>
+                <div class="card-title">
+                    Atendimentos da Semana
+                </div>
+                <div class="card-content">
+                    38 atendimentos
+                </div>
+            </div>
+            <div class="card c3">
+                <i class="card-icon fa fa-calendar-alt"></i>
+                <div class="card-title">
+                    Agendamentos Futuros
+                </div>
+                <div class="card-content">
+                    7 agendamentos
+                </div>
+            </div>
+            <div class="card c2">
+                <i class="card-icon fa fa-line-chart"></i>
+                <div class="card-title">
+                    Resumo do mês
+                </div>
+                <div class="card-content">
+                    <div class="despesa">R$ 9.000,00 <i class="fa fa-caret-down"></i></div>
+                    <div class="receita">R$ 13.000,00 <i class="fa fa-caret-up"></i></div>
+                </div>
+            </div>
+        </div>
+    </p:fieldset>
+
+</ui:composition>

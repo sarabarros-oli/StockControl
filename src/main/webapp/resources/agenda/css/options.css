@@ -1,0 +1,122 @@
+.options {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.options>li>a{
+    display: block;
+    line-height: 60px;
+    min-width: 60px;
+    text-align: center;
+    font-size: 1.4em;
+    color: var(--header-text-color);
+    cursor: pointer;
+    transition: color 0.3s, background 0.3s;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+
+.notify {
+    position: relative;
+}
+.notify .notifications {
+    position: absolute;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    right: 0;
+    background-color: var(--header-bg-color);
+    border: 1px solid #fff;
+    box-shadow: 1px 1px 15px -6px #666;
+    list-style: none;
+    text-align: left;
+    display: none;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.notify:hover .notifications {
+    display: block;
+}
+
+.notify .notifications li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--header-text-color);
+    transition: color 0.3s, background 0.3s;
+}
+.notifications .notifica {
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-template-rows: 1fr 1fr;
+}
+.notifica .notifica-date {
+    font-size: 0.8em;
+}
+.notifica .notifica-body {
+    font-size: 0.8em;
+}
+.notifications .notifica i {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.5em;
+}
+.options li:hover>a {
+    background-color: var(--acent-color);
+    color: var(--header-text-color);
+}
+.options .user {
+    position: relative;
+}
+
+.options .user .user-details {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    padding: 10px;
+    background-color: var(--header-bg-color);
+    border: 1px solid #fff;
+    box-shadow: 1px 1px 15px -6px #666;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.options .user .user-details img {
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--acent-color);
+}
+.options .user .user-details .user-options {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.options .user .user-details .score {
+    font-size: 1.2em;
+    color: #ff9900;
+}
+.options .user .user-details button {
+    border: 2px solid var(--acent-color);
+    color: var(--menu-text-color);
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.options .user .user-details button:hover {
+    background-color: var(--acent-color);
+    color: var(--acent-text-color);
+}
+.options .user:hover .user-details {
+    display: flex;
+}   
