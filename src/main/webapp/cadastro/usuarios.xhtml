@@ -24,6 +24,17 @@
              <p:outputLabel value="Senha"></p:outputLabel>
              <p:inputText value="#{usuarioBean.entidade.senha}"></p:inputText>
          </p:panelGrid>
+           <p:dataTable value="#{usuarioBean.entidades}" var="usuario">
+               <p:column headerText="Nome">
+                   #{usuario.nome}
+               </p:column>
+               <p:column headerText="Email">
+                   #{usuario.email}
+               </p:column>
+               <p:column headerText="Permissoes">
+                   #{usuario.permissoes}
+               </p:column>
+           </p:dataTable>
        </h:form>
         
 
