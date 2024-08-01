@@ -23,8 +23,8 @@ public class UsuarioBean extends GenericBean<Usuario, UsuarioLogic>{
     private UsuarioLogic usuarioLogic;
 
     @Override
-    public Usuario novo() {
-        return new Usuario();
+    public Class<Usuario> getClasseEntidade() {
+        return Usuario.class;
     }
     
     @Override

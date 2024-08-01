@@ -19,7 +19,7 @@ public class UsuarioLogic implements GenericLogic<Usuario> {
     public void salvar(Usuario entidade) {
         entidade.setDataCadastro(new Date());
         entityManager.getTransaction().begin();
-        entityManager.persist(entidade);
+        entityManager.merge(entidade);
         entityManager.getTransaction().commit();
     }
 
