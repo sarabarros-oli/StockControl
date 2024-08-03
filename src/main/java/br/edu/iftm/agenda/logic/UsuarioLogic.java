@@ -1,5 +1,6 @@
 package br.edu.iftm.agenda.logic;
 
+import br.edu.iftm.agenda.dao.UsuarioDAO;
 import br.edu.iftm.agenda.entity.Usuario;
 import java.io.Serializable;
 import java.util.Date;
@@ -13,24 +14,24 @@ import javax.persistence.EntityManager;
  */
 public class UsuarioLogic implements GenericLogic<Usuario> {
     @Inject
-    private EntityManager entityManager;
+    private UsuarioDAO dao;
     
     @Override
     public void salvar(Usuario entidade) {
-        entidade.setDataCadastro(new Date());
-        entityManager.getTransaction().begin();
-        entityManager.merge(entidade);
-        entityManager.getTransaction().commit();
+        if(entidade.getDataCadastro() == null) {
+            entidade.setDataCadastro(new Date());
+        }
+        dao.salvar(entidade);
     }
 
     @Override
     public void deletar(Usuario entidade) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dao.deletar(entidade.getId());
     }
 
     @Override
     public List<Usuario> listar() {
-        return entityManager.createQuery("from Usuario").getResultList();
+        return dao.listar();
     }
 
     

@@ -12,11 +12,22 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <p:toolbar>
-                <p:toolbarGroup>
-                    <p:commandButton value="Novo" actionListener="#{cc.attrs.crud.novo()}" update="@form"></p:commandButton>
-                    <p:commandButton value="Salvar" actionListener="#{cc.attrs.crud.salvar()}" rendered="#{cc.attrs.crud.estadoDaTela.name() != 'LISTAR'}" update="@form"></p:commandButton>
-                    <p:commandButton value="#{cc.attrs.crud.estadoDaTela.name() == 'LISTAR'?'Listar':'Voltar'}" actionListener="#{cc.attrs.crud.listar()}" update="@form"></p:commandButton>
+            <p:toolbarGroup align="left">
+                    <p:commandButton icon="pi #{cc.attrs.crud.estadoDaTela.name() == 'LISTAR'?'pi-search':'pi-arrow-left'}" 
+                                     value="#{cc.attrs.crud.estadoDaTela.name() == 'LISTAR'?'Listar':'Voltar'}" 
+                                     actionListener="#{cc.attrs.crud.listar()}" update="@form"
+                                     styleClass="ui-button-success"></p:commandButton>
+                    <i class="pi pi-ellipsis-v px-1"/>
+                    <p:commandButton icon="pi pi-file-o" value="Novo" actionListener="#{cc.attrs.crud.novo()}" 
+                                     update="@form"></p:commandButton>
+                    <i class="px-1"/>
+                    <p:commandButton icon="pi pi-save"  value="Salvar" actionListener="#{cc.attrs.crud.salvar()}" 
+                                     rendered="#{cc.attrs.crud.estadoDaTela.name() != 'LISTAR'}" 
+                                     update="@form"></p:commandButton>
                 </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <cc:insertChildren></cc:insertChildren>
+            </p:toolbarGroup>
             </p:toolbar>
     </cc:implementation>
 </html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template.xhtml"
+                xmlns:p="primefaces"
+                xmlns:if_agenda="http://xmlns.jcp.org/jsf/composite/if_agenda">
+
+        
+       <h:form>
+            <h1>Cadastro Permissões</h1>
+
+            <if_agenda:toolbarCrud crud="#{permissaoBean}"></if_agenda:toolbarCrud>
+           <p:panelGrid columns="2" layout="tabular" rendered="#{permissaoBean.estadoDaTela.name() != 'LISTAR'}">
+             <p:outputLabel value="Nome"></p:outputLabel>
+             <p:inputText value="#{permissaoBean.entidade.nome}"></p:inputText>
+             <p:outputLabel value="Descrição"></p:outputLabel>
+             <p:inputText value="#{permissaoBean.entidade.descricao}" disabled="#{permissaoBean.estadoDaTela.name() == 'EDITAR'}"></p:inputText>
+         </p:panelGrid>
+            <p:dataTable value="#{permissaoBean.entidades}" var="permissao" rendered="#{permissaoBean.estadoDaTela.name() == 'LISTAR'}" cellNavigation="false">
+               <p:column>
+                   <p:commandButton icon="pi pi-pencil" title="Editar" actionListener="#{permissaoBean.editar(permissao)}" update="@form">
+                   </p:commandButton>
+                   <p:commandButton icon="pi pi-trash" title="Deletar" actionListener="#{permissaoBean.deletar(permissao)}" update="@form">
+                       <p:confirm type="popup" header="Confirmation"  message="Tem certeza que vai deletar?"></p:confirm>
+                   </p:commandButton>
+               </p:column>
+               <p:column headerText="Nome">
+                   #{permissao.nome}
+               </p:column>
+               <p:column headerText="Descrição">
+                   #{permissao.descricao}
+               </p:column>
+           </p:dataTable>
+       </h:form>
+        
+
+</ui:composition>

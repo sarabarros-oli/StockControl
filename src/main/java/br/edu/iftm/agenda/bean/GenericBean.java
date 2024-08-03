@@ -45,7 +45,8 @@ public abstract class GenericBean<E, L extends GenericLogic<E>> implements Seria
         estadoDaTela  = EstadoTela.EDITAR;
     }
     public void deletar(E entidade) {
-        this.entidades.remove(entidade);
+        getLogic().deletar(entidade);
+        getEntidades().remove(entidade);
     }
     public void listar() {
         if(!estadoDaTela.equals(EstadoTela.LISTAR)) {

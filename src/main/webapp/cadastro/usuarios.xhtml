@@ -9,10 +9,11 @@
 
         
        <h:form>
-            <h1>Cadastro Cliente - #{usuarioBean.estadoDaTela}</h1>
+            <h1>Cadastro Usuários</h1>
 
-            <if_agenda:toolbarCrud crud="#{usuarioBean}"></if_agenda:toolbarCrud>
-
+            <if_agenda:toolbarCrud crud="#{usuarioBean}">
+                <p:commandButton value="Exportar Exp."></p:commandButton>
+            </if_agenda:toolbarCrud>
            <p:panelGrid columns="2" layout="tabular" rendered="#{usuarioBean.estadoDaTela.name() != 'LISTAR'}">
              <p:outputLabel value="Nome"></p:outputLabel>
              <p:inputText value="#{usuarioBean.entidade.nome}"></p:inputText>
@@ -21,9 +22,13 @@
              <p:outputLabel value="Senha"></p:outputLabel>
              <p:inputText value="#{usuarioBean.entidade.senha}"></p:inputText>
          </p:panelGrid>
-            <p:dataTable value="#{usuarioBean.entidades}" var="usuario" rendered="#{usuarioBean.estadoDaTela.name() == 'LISTAR'}">
+            <p:dataTable value="#{usuarioBean.entidades}" var="usuario" rendered="#{usuarioBean.estadoDaTela.name() == 'LISTAR'}" cellNavigation="false">
                <p:column>
-                   <p:commandButton value="Editar" actionListener="#{usuarioBean.editar(usuario)}" update="@form"></p:commandButton>
+                   <p:commandButton icon="pi pi-pencil" title="Editar" actionListener="#{usuarioBean.editar(usuario)}" update="@form">
+                   </p:commandButton>
+                   <p:commandButton icon="pi pi-trash" title="Deletar" actionListener="#{usuarioBean.deletar(usuario)}" update="@form">
+                       <p:confirm type="popup" header="Confirmation"  message="Tem certeza que vai deletar?"></p:confirm>
+                   </p:commandButton>
                </p:column>
                <p:column headerText="Nome">
                    #{usuario.nome}
