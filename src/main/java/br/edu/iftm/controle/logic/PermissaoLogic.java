@@ -1,7 +1,7 @@
-package br.edu.iftm.agenda.logic;
+package br.edu.iftm.controle.logic;
 
-import br.edu.iftm.agenda.dao.PermissaoDAO;
-import br.edu.iftm.agenda.entity.Permissao;
+import br.edu.iftm.controle.dao.PermissaoDAO;
+import br.edu.iftm.controle.entity.Permissao;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

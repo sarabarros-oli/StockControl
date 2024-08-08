@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.iftm.agenda.dao;
+package br.edu.iftm.controle.dao;
 
-import br.edu.iftm.agenda.entity.Usuario;
+import br.edu.iftm.controle.entity.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;

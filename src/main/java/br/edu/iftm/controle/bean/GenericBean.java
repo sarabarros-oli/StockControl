@@ -1,6 +1,6 @@
-package br.edu.iftm.agenda.bean;
+package br.edu.iftm.controle.bean;
 
-import br.edu.iftm.agenda.logic.GenericLogic;
+import br.edu.iftm.controle.logic.GenericLogic;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

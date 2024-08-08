@@ -1,6 +1,6 @@
-package br.edu.iftm.agenda.dao;
+package br.edu.iftm.controle.dao;
 
-import br.edu.iftm.agenda.entity.Usuario;
+import br.edu.iftm.controle.entity.Usuario;
 
 public class UsuarioDAO extends GenericDAO<Usuario, Long>{
 

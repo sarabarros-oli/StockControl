@@ -1,10 +1,10 @@
-package br.edu.iftm.agenda.bean;
+package br.edu.iftm.controle.bean;
 
-import br.edu.iftm.agenda.entity.Permissao;
-import br.edu.iftm.agenda.entity.Permissao;
-import br.edu.iftm.agenda.logic.GenericLogic;
-import br.edu.iftm.agenda.logic.PermissaoLogic;
-import br.edu.iftm.agenda.util.EntityManagerProducer;
+import br.edu.iftm.controle.entity.Permissao;
+import br.edu.iftm.controle.entity.Permissao;
+import br.edu.iftm.controle.logic.GenericLogic;
+import br.edu.iftm.controle.logic.PermissaoLogic;
+import br.edu.iftm.controle.util.EntityManagerProducer;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

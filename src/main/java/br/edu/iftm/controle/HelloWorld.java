@@ -1,6 +1,6 @@
-package br.edu.iftm.agenda;
+package br.edu.iftm.controle;
 
-import br.edu.iftm.agenda.entity.Usuario;
+import br.edu.iftm.controle.entity.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

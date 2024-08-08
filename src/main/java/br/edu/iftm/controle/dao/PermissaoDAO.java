@@ -1,7 +1,7 @@
-package br.edu.iftm.agenda.dao;
+package br.edu.iftm.controle.dao;
 
-import br.edu.iftm.agenda.entity.Permissao;
-import br.edu.iftm.agenda.entity.Usuario;
+import br.edu.iftm.controle.entity.Permissao;
+import br.edu.iftm.controle.entity.Usuario;
 
 public class PermissaoDAO extends GenericDAO<Permissao, Long>{
 
